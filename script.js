@@ -1,30 +1,32 @@
-function generateValue(max) {
-    return Math.floor(Math.random() * max + 1)
-};
+const generateValue = (max) => { return Math.floor(Math.random() * max + 1) };
 
 function generateOperator() {
     let bit = Math.round(Math.random());
-    const operator = bit < 0.5 ? '-' : '+';
+    let operator = bit < 0.5 ? '-' : '+';
     return operator;
 }
 
-function randomValues() {
+function generateValues() {
     let val1 = generateValue(20);
     let val2 = generateValue(20);
     return [val1, val2];
 }
 
+function getOperation () {
+    let numbers = generateValues();
+    let operator = generateOperator();
+    let first = numbers[0];
+    let second = numbers[1];
+    let fullText = first + " " + operator + " " + second ;
+    return fullText;
+}
 
-const numbers = randomValues();
-const operator = generateOperator();
-
-const first = numbers[0];
-const second = numbers[1];
-
-const fullText = first + " " + operator + " " + second ;
+fullText = getOperation();
 
 document.getElementById('text').textContent = fullText;
-document.getElementById('refreshButton').addEventListener('click', function() {
-    window.location.reload();
+document.getElementById('nextButton').addEventListener('click', function() {
+    fullText = getOperation();
+    document.getElementById('text').textContent = fullText;
+    return fullText;
 });
 
