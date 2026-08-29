@@ -1,4 +1,4 @@
-const generateValue = (max) => { return Math.floor(Math.random() * max + 1) };
+const generateValue = (max) => { return Math.floor(Math.random() * max ) + 1 };
 
 function generateOperator() {
     let bit = Math.round(Math.random());
@@ -7,26 +7,22 @@ function generateOperator() {
 }
 
 function generateValues() {
-    let val1 = generateValue(20);
-    let val2 = generateValue(20);
-    return [val1, val2];
+    return [generateValue(20), generateValue(20)];
 }
 
 function getOperation () {
-    let numbers = generateValues();
-    let operator = generateOperator();
-    let first = numbers[0];
-    let second = numbers[1];
-    let fullText = first + " " + operator + " " + second ;
-    return fullText;
+    const numbers = generateValues();
+    const operator = generateOperator();
+    const first = numbers[0];
+    const second = numbers[1];
+    return `${first} ${operator} ${second}`;
 }
 
-fullText = getOperation();
+const operationText = getOperation();
 
-document.getElementById('text').textContent = fullText;
+document.getElementById('text').textContent = operationText;
 document.getElementById('nextButton').addEventListener('click', function() {
-    fullText = getOperation();
-    document.getElementById('text').textContent = fullText;
-    return fullText;
+    const operation = getOperation();
+    document.getElementById('text').textContent = operation;
 });
 
