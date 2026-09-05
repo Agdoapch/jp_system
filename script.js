@@ -19,6 +19,7 @@ function getOperation() {
     messageError = '';
     let minMaxVal = [minVal = firstInput.value, maxVal = secondInput.value];
     if ((isNullOrNan(minMaxVal[0]) || isNullOrNan(minMaxVal[1]))) {
+        console.log((isNullOrNan(minMaxVal[0]) || isNullOrNan(minMaxVal[1])))
         return messageError = (isNullOrNan(minMaxVal[0]) || isNullOrNan(minMaxVal[1]));
     } else {
     const val1 = getNumbers(minVal, maxVal);
@@ -39,15 +40,15 @@ function isRight(operationArray, input) {
     let result = operationArray[1];
     if (isNullOrNan(input)) {
         messageError = isNullOrNan(input);
-        messageInfo.innerText = messageError;
+        messageBottom.innerText = messageError;
         return false;
     }
 
     if (result == input) {
-        messageInfo.innerText = "Right!";
+        messageBottom.innerText = "Right!";
         return true;
     } else if (result != input) {
-        messageInfo.innerText = "Wrong!";
+        messageBottom.innerText = "Wrong!";
         return false;
     } 
 };
@@ -75,7 +76,11 @@ const buttonGenerate = document.getElementById('generateButton');
 
 const nextButton = document.getElementById('nextButton');
 
-let messageInfo = document.getElementById('message');
+let operationText = document.getElementById('operationText');
+
+let messageBottom = document.getElementById('messageBottom');
+
+let messageTop= document.getElementById('messageTop');
 
 const checkButton = document.getElementById('checkButton');
 checkButton.addEventListener('click', () => {
@@ -90,17 +95,19 @@ checkButton.addEventListener('click', () => {
 buttonGenerate.addEventListener('click', () => {
     messageError = '';
     operation = getOperation();
-    if (!isNullOrNan(operation)) {
-        messageError = isNullOrNan(operation);
-        messageInfo.innerText = messageError;
+    if (!Array.isArray(operation)) {
+        console.log(operation);
+        messageError = operation;
+        messageTop.innerText = messageError;
+        console.log('error')
         return false;
     } else {
-    text = operation[0];
-    res = operation[1];
-    let operationText = document.getElementById('operationText').textContent = text;
+    console.log('no error');
+    let text = operation[0];
+    let res = operation[1];
+    operationText.textContent = text;
     resultInput.value = '';
-    messageInfo.innerText = '';
-    return operationText;
+    messageTop.innerText = '';
     }  
 });
 
@@ -108,8 +115,8 @@ nextButton.addEventListener('click', () => {
     fullOperation = getOperation();
     text = fullOperation[0];
     res = fullOperation[1];
-    let operationText = document.getElementById('operationText').textContent = text;
     resultInput.value = '';
-    messageInfo.innerText = '';
+    messageTop.innerText = '';
+    messageBottom.innerText = '';
     return operationText;
 });

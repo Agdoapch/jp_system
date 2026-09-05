@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Japan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="inputNumbers">
-    <input type="text" id="inputOne" required>
-    <input type="text" id="inputTwo" required>
-    <button id="generateButton">Generate</button>
+    <div class="input-box">
+        <div class="input-nums">
+        <input type="text" id="inputOne" required>
+        <input type="text" id="inputTwo" required>
     </div>
-    <p name="operation" id="operationText"></p>
+    <p type="text" id="messageTop"></p>
+    <button class="basic-button" id="generateButton">Generate</button>
+    </div>
+    <p class="operation-display" id="operationText">"Let's start!"</p>
     <input type="text" id="resultInput" required></input>
-    <p id="message"></p>
-    <button id="checkButton">Check</button>
-    <button id="nextButton">Button</button>
+    <p type="text" id="messageBottom"></p>
+    <button class="basic-button" id="checkButton">Check</button>
+    <button class="basic-button" id="nextButton">Button</button>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,98 @@
-button {
-    background-color: chocolate;
+* {
+    font-family: 'VT323', monospace;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: lightgoldenrodyellow;
+}
+
+.input-nums {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+.input-box {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    background-image: url("assets/num_button.png");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+    text-align: center;
+    font-size: 30px;
+}
+
+input:focus {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    background-image: url("assets/num_button_pressed.png");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+    text-align: center;
+    font-size: 30px;
+}
+
+.operation-display {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    background-image: url('assets/display.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.basic-button {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    font-size: 30px;
+    color: white;
+    
+    background-image: url('assets/button.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    width: 128px;
+    height: 64px;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.basic-button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
 }
 
